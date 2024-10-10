@@ -1,0 +1,339 @@
+<!DOCTYPE html >
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--findmylaptop.com-->
+    <title>find my laptop</title>
+    <link rel="stylesheet" href="sheets.css">
+    
+</head>
+<body>
+    <div class="navbar">
+        <h1>מצא את המחשב שמתאים לך</h1>
+    </div>
+
+    <!-- dynamic section with changing questions-->
+
+    <div class="container">
+
+        <div id="progress" class="progress" dir="rtl">שאלה 1 מתוך 6</div>
+
+        <!--The welcome page-->
+        <div class="section-active" id="welcome">
+
+            <h1 dir="rtl">ברוכים הבאים!</h1>
+            <hr class = "linebreak">
+            <p dir="rtl">ברוכים הבאים לאתר שיעזור לכם למצוא את הלפטופ המושלם בשבילכם מבלי להבין במחשבים כלל!</p>
+            <h2 dir = "rtl" style="display: flex; align-items: center; row-gap: 0.25rem; column-gap: 0.25rem; margin-block-start: 2rem;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-help-hexagon"><path d="M19.875 6.27c.7 .398 1.13 1.143 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z"></path><path d="M12 16v.01"></path><path d="M12 13a2 2 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483"></path></svg>איך זה עובד?</h2>
+
+            <p dir="rtl">האתר מכיל שאלון קצר על מה שאתה צריך מהמחשב לפי הקריטריונים הבאים:</p>
+            <ol dir="rtl">
+                <li>מחיר</li>
+                <li>משימות</li>
+                <li>גודל</li>
+                <li>ניידות</li>
+              </ol>
+              
+            <p dir="rtl">בזמן המענה על השאלות אנחנו מתאימים רשימת מחשבים ברקע כך שיתאים בדיוק לצרכים שלכם! </p>
+  
+            <button class="nextBtn" onclick="nextStep()">בואו נתחיל</button>
+
+        </div>
+
+        <!--first question (price)-->
+        <div class="section" id="question1">
+            <h1 dir="rtl">מחיר</h1>
+            <hr class = "linebreak">
+            <p dir="rtl">כמה המחיר חשוב לכם?</p>
+            <form id="price-form" dir="rtl">
+                <label>
+                <input type="radio" name="priceImportance" value="בכלל לא חשוב" onclick="hideSlider();">
+                בכלל לא חשוב
+                </label><br>
+                
+                <label>
+                <input type="radio" name="priceImportance" value="קצת חשוב" onclick="showSlider();">
+                קצת חשוב
+                </label><br>
+                
+                <label>
+                <input type="radio" name="priceImportance" value="מאוד חשוב" onclick="showSlider();">
+                    חשוב
+                </label><br>
+                
+                <label>
+                <input type="radio" name="priceImportance" value="חשוב מאוד" onclick="showSlider();">
+                חשוב מאוד
+                </label>
+            </form>
+        
+            
+            <!-- Slider for budget selection -->
+            <div class="budget-selection">
+                <p dir = "rtl">מה התקציב שלך למחשב?</p>
+                <input type="range" min="0" max="8000" value="3000" step="100" id="budgetSlider" oninput="updateSliderValue()" dir ="rtl">
+                <p dir = "rtl">תקציב נבחר: ₪<span id="budgetValue">3000</span></p>
+            </div>
+
+            <!--bottons sections -->
+            <div class="btnsection">
+            <button class="nextBtn" onclick="nextStep()">הבא: משימות</button>
+            <button class="backBtn" onclick="prevStep()">
+                חזור אחורה
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+                    <path d="M5 12l14 0"></path>
+                    <path d="M5 12l6 6"></path>
+                    <path d="M5 12l6 -6"></path>
+                </svg>
+            </button> 
+            </div>
+            
+        
+
+        </div>
+
+        <!--second question-->
+        <div class="section" id="question2">
+            <h1 dir="rtl">משימות</h1>
+            <hr class = "linebreak">
+            <p dir="rtl">איזה משימות אתם מתכוונים לעשות עם המחשב?</p>
+
+            <div class="checkbox-container">
+                <form dir="rtl" id ="tasks-form">
+                <div class="column">
+                    <label class="checkbox-style">
+                        <input type="checkbox" name="activity" value="גלישה באינטרנט">
+                        גלישה באינטרנט
+                    </label>
+                    <label>
+                        <input type="checkbox" name="activity" value="תוכנות מידול/אנימציה">
+                        תוכנות מידול/אנימציה
+                    </label>
+                    <label>
+                        <input type="checkbox" name="activity" value="תכנות קל(סטודנטים)">
+                        תכנות קל(סטודנטים)
+                    </label>
+                    <label>
+                        <input type="checkbox" name="activity" value="עריכת תמונות">
+                        עריכת תמונות
+                    </label>
+                    <label>
+                        <input type="checkbox" name="activity" value="עריכת סרטונים">
+                        עריכת סרטונים
+                    </label>
+                    
+                </div>
+                </form>
+                <form dir="rtl" id ="tasks-form2">
+                <div class="column">
+                    <label>
+                        <input type="checkbox" name="activity" value="כתיבת מסמכים">
+                        כתיבת מסמכים
+                    </label>
+                    <label>
+                        <input type="checkbox" name="activity" value="גיימינג כבד">
+                        גיימינג כבד
+                    </label>
+                    <label>
+                        <input type="checkbox" name="activity" value="עריכת מוזיקה">
+                        עריכת מוזיקה
+                    </label>
+                    <label>
+                        <input type="checkbox" name="activity" value="תכנות כבד">
+                        תכנות כבד
+                    </label>
+                    <label>
+                        <input type="checkbox" name="activity" value="סרטים/זום/צפייה בהרצאות">
+                        סרטים/זום/צפייה בהרצאות
+                    </label>
+                </form>
+                </div>
+            </div>
+
+            <!--bottons sections -->
+            <div class="btnsection">
+                <button class="nextBtn" onclick="nextStep()">הבא: גודל המחשב</button>
+                <button class="backBtn" onclick="prevStep()">
+                    חזור אחורה
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+                        <path d="M5 12l14 0"></path>
+                        <path d="M5 12l6 6"></path>
+                        <path d="M5 12l6 -6"></path>
+                    </svg>
+                </button> 
+                </div>
+        </div>
+
+
+        <!--third question-->
+        <div class="section" id="question3">
+            <h1 dir="rtl">גודל</h1>
+            <hr class = "linebreak">
+            <p dir="rtl">כמה הגודל חשוב לכם?</p>
+
+            <form dir="rtl" id ="size-form">
+                <label>
+                <input type="radio" name="sizeImportance" value="בכלל לא חשוב" onclick="hideSizeSelection();">
+                בכלל לא חשוב
+                </label><br>
+                
+                <label>
+                <input type="radio" name="sizeImportance" value="קצת חשוב" onclick="showSizeSelection();">
+                קצת חשוב
+                </label><br>
+                
+                <label>
+                <input type="radio" name="sizeImportance" value="חשוב" onclick="showSizeSelection();">
+                    חשוב
+                </label><br>
+                
+                <label>
+                <input type="radio" name="sizeImportance" value="חשוב מאוד" onclick="showSizeSelection();">
+                חשוב מאוד
+                </label>
+            </form>
+
+            <!-- Select the size section(tiny,big..etc) -->
+            <div class="size-selection">
+                <p dir = "rtl">איזה גודל הנך מעדיף ללפטופ שלך?</p>
+                <form id="sizeType-form">
+                    <p>What size laptop do you prefer?</p>
+                    <div class="sizeType-container">
+                        <label class="size-checkbox-style" dir="rtl">
+                            <input type="checkbox" name="size" value="קטנטן" dir="rtl">
+                                <div class="size-radio-text" dir="rtl">
+                                    <p class="size-radio-main" dir="rtl">קטנטן</p>
+                                    <p class="size-radio-span" dir="rtl">פחות מ13 אינצ׳</p>
+                                </div>
+                        </label><br>
+                        
+                        <label class="size-checkbox-style" dir="rtl">
+                            <input type="checkbox" name="size" value="קטן">
+                            קטן <br><span>13" - 14"</span>
+                        </label><br>
+                        
+                        <label class="size-checkbox-style" dir="rtl">
+                            <input type="checkbox" name="size" value="בינוני">
+                            בינוני <br><span>14" - 16"</span>
+                        </label><br>
+                        
+                        <label class="size-checkbox-style" dir="rtl">
+                            <input type="checkbox" name="size" value="גדול">
+                            גדול <br><span>מעל 16"</span>
+                        </label>
+                    </div>
+                </form>
+                
+            </div>
+
+            <!--bottons sections -->
+            <div class="btnsection">
+                <button class="nextBtn" onclick="nextStep()">הבא: ניידות</button>
+                <button class="backBtn" onclick="prevStep()">
+                    חזור אחורה
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+                        <path d="M5 12l14 0"></path>
+                        <path d="M5 12l6 6"></path>
+                        <path d="M5 12l6 -6"></path>
+                    </svg>
+                </button> 
+                </div>
+
+
+
+    </div>
+
+        <!--fourth question-->
+        <div class="section" id="question4">
+            <h1 dir="rtl">ניידות</h1>
+            <hr class = "linebreak">
+            <p dir="rtl">כמה חשוב לכם שהוא יהיה קל לסחיבה ונייד? רוב הזמן אתם בבית או בדרכים הרבה?</p>
+
+            <form dir="rtl" id ="portability-form">
+                <label>
+                <input type="radio" name="portabilityImportance" value="בכלל לא חשוב" onclick="hidePortabilityText();">
+                בכלל לא חשוב
+                </label><br>
+                
+                <label>
+                <input type="radio" name="portabilityImportance" value="קצת חשוב" onclick="showPortabilityText();">
+                קצת חשוב
+                </label><br>
+                
+                <label>
+                <input type="radio" name="portabilityImportance" value="חשוב" onclick="showPortabilityText();">
+                    חשוב
+                </label><br>
+                
+                <label>
+                <input type="radio" name="portabilityImportance" value="חשוב מאוד" onclick="showPortabilityText();">
+                חשוב מאוד
+                </label>
+            </form>
+
+            <div class="portability-text">
+                <p>אנחנו ננסה למצוא לך מחשב שקל לסחוב ולהתנייד איתו</p>
+            </div>
+
+            <!--bottons sections -->
+            <div class="btnsection">
+                <button class="nextBtn" onclick="nextStep()">הבא: תוצאות</button>
+                <button class="backBtn" onclick="prevStep()">
+                    חזור אחורה
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+                        <path d="M5 12l14 0"></path>
+                        <path d="M5 12l6 6"></path>
+                        <path d="M5 12l6 -6"></path>
+                    </svg>
+                </button> 
+                </div>
+            </div>
+
+        <!--results page-->
+        <div class="section" id="question5">
+            <h1 dir="rtl">תוצאות</h1>
+            <div class="congratulations-box">
+                <p dir="rtl"><strong dir ="rtl">מזל טוב!</strong> סיימת את השאלון, צפה בתוצאות למטה.</p>
+            </div>
+            <hr class = "linebreak">
+            <div id="results-container"></div>
+
+           
+        
+    
+    
+       
+
+            <!--bottons sections -->
+            <div class="btnsection">
+                <button class="backBtn" onclick="prevStep()">
+                    חזור אחורה
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+                        <path d="M5 12l14 0"></path>
+                        <path d="M5 12l6 6"></path>
+                        <path d="M5 12l6 -6"></path>
+                    </svg>
+                </button> 
+            </div>
+ 
+        </div>
+
+    <!--footer note-->
+    </div>
+    <p dir="rtl" class="note">כדי לשמור על האתר בחינם אנו מקבלים עמלות עבור רכישות דרכנו</p>
+
+    <script src="scripts/sliders.js"></script>
+    <script src="scripts/navigation.js"></script>
+    <script src="scripts/algo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-circle-progress/dist/circle-progress.min.js" type="module"></script>
+
+    
+
+
+ 
+    
+
+</body>
+</html>

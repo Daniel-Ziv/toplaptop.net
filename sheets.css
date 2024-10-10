@@ -1,0 +1,350 @@
+
+
+
+body{
+  padding:0px;
+  margin:0px;
+}
+
+/* top logo + navbar */ 
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+   
+    
+  }
+
+.navbar h1{
+    color: white;
+    text-align: right;
+}
+.linebreak {
+    display: block;
+    position: relative;
+    width: 30%;
+    font-size: 1px;
+    clear: both;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #ffffff;
+    margin-right: 0vw;
+    margin-bottom: 3vw;
+ }
+
+/* the container for the body and most questions */ 
+ .container{
+    background-color: white;
+    width: 640px;
+    padding: 20px;
+    text-align: right;
+    margin-right: 13vw; 
+    margin-top:3vw;
+    margin-left: auto; 
+    display: flex;
+    flex-direction: column;
+    
+    }
+
+/* a section is a single question page */ 
+    .section {
+        display: none;
+      }
+    
+    .section-active{
+        display: block;
+        padding: 20px;
+        max-width: 600px;
+        
+      }
+
+
+ /* budget sliders */
+
+  input[type="radio"] {
+    margin-left: 10px;
+  }
+
+  
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 12px;
+    background: #d3d3d3;
+    border-radius: 10px;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+  .budget-selection{
+    margin-top: 30px;
+    font-size: 18px;
+    display: none;
+  }
+
+/* Container for the size selection */
+.size-selection {
+  margin-top: 20px;
+  display: none;
+
+}
+
+.sizeType-container {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Make the entire label clickable */
+.size-checkbox-style {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #f9f9f9; /* Light background for better visibility */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.size-checkbox-style:hover {
+  background-color: #e6f3ff;  /* Light blue background on hover */
+}
+
+/* Move the checkbox and space between checkbox and text */
+.size-checkbox-style input[type="checkbox"] {
+  margin-right: 10px;
+  margin-left: 1vw;
+  transform: scale(1.5);  /* Increase the size of the checkbox */
+}
+
+.size-radio-span {
+  font-size: 12px;
+  color: #888;
+  
+}
+
+.size-radio-text{
+
+}
+
+/* Checkboxes should be custom color when checked */
+input[type="checkbox"]:checked {
+  accent-color: #007BFF;
+}
+/* last question text show(we'll try to find a good laptop to carry around */
+.portability-text{
+  display: none;
+}
+
+
+  
+  /* back and next buttons */ 
+
+  .btnsection {
+    margin-top: 3vw;
+  }
+
+  .nextBtn {
+    background-color: #000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%; 
+            box-sizing: border-box;
+    
+  }
+
+  .nextBtn:hover {
+    background-color: #333;
+}
+
+  
+  .backBtn {
+    background: none;
+    color: black;
+    text-decoration: none; /* Remove underline */
+    border: none;
+    cursor: pointer;
+    width: fit-content; /* Adjust the width to fit the content */
+    padding: 10px 0;
+    box-sizing: border-box;
+    display: flex; /* Use flexbox */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Center content horizontally inside the button */
+    margin: 0 auto; /* Center the button horizontally */
+    gap: 2px; /* Add space*/
+    font-size: 16px;
+
+
+  }
+  
+/* checkboxs for the second question */ 
+
+.checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    width: 600px; /* Adjust width as needed */
+    margin: 0 auto;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+/* Results page container */
+.results-page-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header section */
+.results-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.congratulations-box {
+  background-color: #e6f7e6;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  color: #155724;
+  border: 1px solid #c3e6c3;
+  display: inline-block;
+}
+
+/* results page laptop card and info */
+.laptop-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.inner-card{
+  display: inline-flex;
+  
+}
+
+.laptop-img  {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  flex: 0 0 150px;
+  margin-right: 0px;
+  margin-left: 2vw;
+
+}
+
+.laptop-card h2 { 
+  margin: 0;
+  font-weight: lighter;
+  font-size: 15px;
+
+}
+
+.laptop-specs {
+  display: inline-block;
+  gap: 20px;
+  margin-top: 10px;
+  padding: 1vw;
+  text-align: center;
+}
+
+.laptop-specs span {
+  font-size: 14px;
+  color: #888;
+}
+
+
+.laptop-action  {
+  display: inline-block;
+  padding: 10px 30px;
+  background: linear-gradient(to right, #007BFF, #00BFFF);  /* Blue gradient */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  /* Light shadow for a subtle depth effect */
+}
+
+.laptop-action:hover {
+  background: linear-gradient(to right, #0056b3, #008fcc);  /* Darker blue on hover */
+  text-decoration: none;
+}
+
+.link-zap{
+  text-align: left ;
+}
+
+
+.circle-progress-value {
+  stroke-width: 6px;
+  stroke: hsl(39, 100%, 50%);
+}
+
+.circle-progress-circle {
+  stroke-width: 6px;
+  stroke: hsl(39, 100%, 85%);
+}
+
+.circle-progress-text {
+  fill: hsl(39, 100%, 50%);
+}
+
+.inner-precentage{
+  text-align: center;
+}
+
+/* the note at tbe bottom of the site */ 
+.inner-info h2{
+  margin-bottom: 2vw;
+  text-align: right;
+  width: 80%;
+  margin-left: 7.5vw;
+
+}
+
+.inner-info{
+  width: 310px;
+}
+.laptop-details{
+  text-align: right;
+  display: block;
+  margin: 0;
+}
+
+.note {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}
+

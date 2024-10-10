@@ -1,0 +1,49 @@
+body {
+	font-family: sans-serif;
+	background: hsl(0, 0%, 90%);
+	margin: 0;
+}
+
+pre {
+	margin: 0;
+}
+
+a {
+	color: hsl(210, 100%, 40%);
+	font-weight: bold;
+	text-decoration: none;
+	transition: .25s;
+}
+
+a:hover,
+a:focus {
+	color: hsl(250, 100%, 20%);
+}
+
+
+.container {
+	max-width: 60rem;
+	margin: auto;
+}
+
+
+.site-footer {
+	background: white;
+	padding: 25px;
+	border-radius: 3px 3px 0 0;
+}
+
+
+.example {
+	margin: 30px 0;
+	padding: 10px 5px;
+	background: white;
+	border-radius: 3px;
+}
+
+@media screen and (min-width: 50rem) {
+	.example {
+		display: flex;
+		padding: 25px;
+	}
+}
