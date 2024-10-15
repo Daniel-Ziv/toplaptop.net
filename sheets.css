@@ -4,6 +4,10 @@
 body{
   padding:0px;
   margin:0px;
+  font-family: "Assistant", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 450;
+  font-style: normal;
 }
 
 /* top logo + navbar */ 
@@ -17,6 +21,7 @@ body{
 .navbar h1{
     color: white;
     text-align: right;
+    margin-right: 5%;
 }
 .linebreak {
     display: block;
@@ -31,17 +36,17 @@ body{
  }
 
 /* the container for the body and most questions */ 
- .container{
+
+  .container{
     background-color: white;
     width: 640px;
     padding: 20px;
     text-align: right;
-    margin-right: 13vw; 
-    margin-top:3vw;
-    margin-left: auto; 
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2vw;
     display: flex;
     flex-direction: column;
-    
     }
 
 /* a section is a single question page */ 
@@ -56,6 +61,10 @@ body{
         
       }
 
+/* home page */
+li + li {
+  margin-top: 5px;
+}
 
  /* budget sliders */
 
@@ -85,6 +94,8 @@ body{
     display: none;
   }
 
+
+
 /* Container for the size selection */
 .size-selection {
   margin-top: 20px;
@@ -102,11 +113,8 @@ body{
 .size-checkbox-style {
   display: inline-flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px;
   background-color: #f9f9f9; /* Light background for better visibility */
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -118,7 +126,7 @@ body{
 /* Move the checkbox and space between checkbox and text */
 .size-checkbox-style input[type="checkbox"] {
   margin-right: 10px;
-  margin-left: 1vw;
+  margin-left: 4vw;
   transform: scale(1.5);  /* Increase the size of the checkbox */
 }
 
@@ -128,9 +136,6 @@ body{
   
 }
 
-.size-radio-text{
-
-}
 
 /* Checkboxes should be custom color when checked */
 input[type="checkbox"]:checked {
@@ -146,7 +151,7 @@ input[type="checkbox"]:checked {
   /* back and next buttons */ 
 
   .btnsection {
-    margin-top: 3vw;
+    margin-top: 1vw;
   }
 
   .nextBtn {
@@ -193,6 +198,7 @@ input[type="checkbox"]:checked {
     justify-content: space-between;
     width: 600px; /* Adjust width as needed */
     margin: 0 auto;
+    
 }
 
 .column {
@@ -210,7 +216,8 @@ label {
 
 input[type="checkbox"] {
     margin-right: 10px;
-    width: 20px;
+    margin-left: 10px;
+    width: auto;
     height: 20px;
 }
 
@@ -263,7 +270,7 @@ input[type="checkbox"] {
 
 .laptop-card h2 { 
   margin: 0;
-  font-weight: lighter;
+  font-weight: 400;
   font-size: 15px;
 
 }
@@ -327,7 +334,6 @@ input[type="checkbox"] {
 .inner-info h2{
   margin-bottom: 2vw;
   text-align: right;
-  width: 80%;
   margin-left: 7.5vw;
 
 }
@@ -341,6 +347,139 @@ input[type="checkbox"] {
   margin: 0;
 }
 
+/* mobile style */ 
+
+@media screen and (max-width: 768px) {
+  .container {
+      width: 95%;
+      margin: 2vw auto;
+      padding: 10px;
+  }
+  
+  *{
+    box-sizing: border-box; /* Ensures padding and borders are included in the width */
+    max-width: 100%; /* Prevents elements from stretching beyond the screen */
+  
+  }
+  .navbar h1 {
+      font-size: 18px;
+      padding: 5px;
+  }
+
+
+  .btnsection {
+      margin-top: 1vw;
+  }
+
+  /* Adjust next and back buttons */
+  .nextBtn, .backBtn {
+      padding: 8px 15px;
+  }
+  .nextBtn{
+    margin-top:3vw;
+
+  }
+
+  /* Adjust input fields and checkboxes */
+  input[type="checkbox"], input[type="radio"] {
+      transform: scale(1.2);
+  }
+
+  /* Adjust result cards for mobile */
+  .laptop-card {
+    flex-direction: column; /* Stack the elements vertically on mobile */
+    text-align: center;
+    justify-self: center;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+  .inner-card {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    text-align: center;
+    justify-content: center;
+    
+  }
+  .inner-info{
+    align-items: center;
+    justify-content: center;
+  }
+
+  .laptop-img {
+    width: 80%; /* Make the image take up the full width on smaller screens */
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .laptop-action {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  .laptop-specs {
+    text-align: center;
+    align-items: center;
+  }
+
+  .laptop-card h2 {
+    text-align: center;
+    font-size: 16px; /* Slightly larger font for readability on smaller screens */
+    margin: 0px;
+    margin-bottom: 2vw;
+  }
+  .link-zap{
+      text-align: center;
+      width: 100%;
+  }
+
+ 
+}
+
+  /* show more button */ 
+  .show-more-btn{
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; 
+    box-sizing: border-box;
+
+    
+  }
+  /* Adjust checkbox layout */
+  .checkbox-container {
+      flex-direction: row;
+      align-items: flex-start;
+      width: 100%;
+  }
+
+  .size-checkbox-style {
+      padding: 10px;
+      font-size: 14px;
+  }
+
+
+
+  .results-page-container {
+      width: 100%;
+  }
+  .inner-precentage{
+    
+  }
+
+/* site buttom note */ 
 .note {
     font-size: 12px;
     color: #888;

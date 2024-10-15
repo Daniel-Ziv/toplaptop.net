@@ -67421,23 +67421,7 @@
         "cpu_ghz": "לא זמין",
         "screenhz": "60 Hz"
     },
-    {
-        "name": "מחשב נייד Apple MacBook Pro 16 M2 Max MNWA3HB/A MNWE3HB/A אפל",
-        "price": "14,789 ₪",
-        "url": "https://www.zap.co.il/compmodels.aspx?modelid=1182994",
-        "product_img": "https://img.zap.co.il/pics/2/2/7/4/76064722c.gif",
-        "ram_type": "לא זמין",
-        "storage_space": "1000 GB",
-        "storage_type": "SSD",
-        "screen_size": "16.2 אינטש",
-        "for_gaming": "לא רלוונטי",
-        "os": "MacOS",
-        "weight": "2.1 ק\"ג",
-        "cpu": "M2",
-        "ram_size": "32 GB",
-        "cpu_ghz": "לא זמין",
-        "screenhz": "165 Hz, 60 Hz"
-    },
+
     {
         "name": "מחשב נייד Lenovo ThinkPad X1 Nano Gen 1 20UN005TIV לנובו",
         "price": "9,798 ₪",

@@ -7,11 +7,41 @@
     <!--findmylaptop.com-->
     <title>find my laptop</title>
     <link rel="stylesheet" href="sheets.css">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Assistant:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/12.png" type="image/jpeg">
+
 </head>
 <body>
     <div class="navbar">
-        <h1>מצא את המחשב שמתאים לך</h1>
+        <div class="navbar" style="display: flex; justify-content: flex-end; padding-right: 0;">
+            <h1 style="display: flex; align-items: center; justify-content: flex-end;">
+                מצא את המחשב שמתאים לך
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" style="margin-left: 10px;">
+                    <defs>
+                        <style>.cls-2{fill:#d3d3d3}.cls-6{fill:#7cc8fb}.cls-8{fill:#4f4f74}</style>
+                    </defs>
+                    <circle cx="256" cy="256" r="256" style="fill:#27273d" id="BULINE"/>
+                    <g id="Icons">
+                        <path class="cls-2" d="M88.95 94.77h327.44a21.07 21.07 0 0 1 21.07 21.07v273.4H67.88v-273.4a21.07 21.07 0 0 1 21.07-21.07z"/>
+                        <rect x="90.57" y="125.02" width="324.2" height="206.4" rx="7.62" style="fill:#41c0e3"/>
+                        <path d="M157 94.77a21.07 21.07 0 0 0-21 21.07v273.4H67.88v-273.4A21.07 21.07 0 0 1 89 94.77z" style="fill:#c1c1c1"/>
+                        <path d="M136 125v206.43H98.19a7.63 7.63 0 0 1-7.62-7.63V132.65a7.63 7.63 0 0 1 7.62-7.65z" style="fill:#3db5d1"/>
+                        <circle class="cls-6" cx="391.35" cy="176.33" r="14.44"/>
+                        <circle class="cls-6" cx="391.35" cy="146.24" r="10.23"/>
+                        <path d="M456.91 362.68v27.1A25.93 25.93 0 0 1 431 415.72H74.36a25.93 25.93 0 0 1-25.93-25.94v-27.1a8.74 8.74 0 0 1 8.74-8.74h129.15a10.15 10.15 0 0 1 10 8.41l2 11.65a13.1 13.1 0 0 0 12.89 10.84h82.83A13.09 13.09 0 0 0 307 374l2-11.66a10.16 10.16 0 0 1 10-8.4h129.17a8.74 8.74 0 0 1 8.74 8.74z" style="fill:#fff"/>
+                        <path class="cls-2" d="M456.91 381v10.81A25.92 25.92 0 0 1 431 417.7H74.36a25.93 25.93 0 0 1-25.93-25.93V381a25.93 25.93 0 0 0 25.93 25.9H431a25.93 25.93 0 0 0 25.91-25.9z"/>
+                        <rect class="cls-8" x="90.57" y="338.09" width="7.2" height="12.07" rx="1.62"/>
+                        <rect class="cls-8" x="103" y="338.09" width="7.2" height="12.07" rx="1.62"/>
+                        <rect class="cls-8" x="115.42" y="338.09" width="7.2" height="12.07" rx="1.62"/>
+                        <circle class="cls-8" cx="252.67" cy="109.9" r="7.2"/>
+                    </g>
+                </svg>
+            </h1>
+        </div>
+        
+        
     </div>
 
     <!-- dynamic section with changing questions-->
@@ -26,7 +56,7 @@
             <h1 dir="rtl">ברוכים הבאים!</h1>
             <hr class = "linebreak">
             <p dir="rtl">ברוכים הבאים לאתר שיעזור לכם למצוא את הלפטופ המושלם בשבילכם מבלי להבין במחשבים כלל!</p>
-            <h2 dir = "rtl" style="display: flex; align-items: center; row-gap: 0.25rem; column-gap: 0.25rem; margin-block-start: 2rem;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-help-hexagon"><path d="M19.875 6.27c.7 .398 1.13 1.143 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z"></path><path d="M12 16v.01"></path><path d="M12 13a2 2 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483"></path></svg>איך זה עובד?</h2>
+            <h2 dir = "rtl" style="display: flex; align-items: center; row-gap: 0.25rem; column-gap: 0.25rem; margin-block-start: 2rem;">איך זה עובד?</h2>
 
             <p dir="rtl">האתר מכיל שאלון קצר על מה שאתה צריך מהמחשב לפי הקריטריונים הבאים:</p>
             <ol dir="rtl">
@@ -44,7 +74,13 @@
 
         <!--first question (price)-->
         <div class="section" id="question1">
-            <h1 dir="rtl">מחיר</h1>
+            <h1 dir="rtl">
+                <svg class="svg-icon" style="width: 24px;height:24px;vertical-align: middle;fill: currentColor;overflow: hidden; margin-left:-5px;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M676.57216 356.571429v283.428571c0 10.276571-8.009143 18.285714-18.285714 18.285714h-91.428572a18.066286 18.066286 0 0 1-18.285714-18.285714V356.571429A155.574857 155.574857 0 0 0 393.143589 201.142857H237.715017v658.285714c0 10.276571-8.009143 18.285714-18.285714 18.285715H128.000731a18.066286 18.066286 0 0 1-18.285714-18.285715v-768c0-10.276571 8.009143-18.285714 18.285714-18.285714h265.142858a283.392 283.392 0 0 1 283.428571 283.428572z m219.428571-265.142858v502.857143A283.392 283.392 0 0 1 612.57216 877.714286H347.429303a18.066286 18.066286 0 0 1-18.285714-18.285715v-548.571428c0-10.276571 8.009143-18.285714 18.285714-18.285714H438.857874c10.276571 0 18.285714 8.009143 18.285715 18.285714v438.857143h155.428571A155.574857 155.574857 0 0 0 768.000731 594.285714V91.428571c0-10.276571 8.009143-18.285714 18.285715-18.285714H877.715017c10.276571 0 18.285714 8.009143 18.285714 18.285714z" fill="" />
+                </svg>
+                מחיר
+              </h1>
+              
             <hr class = "linebreak">
             <p dir="rtl">כמה המחיר חשוב לכם?</p>
             <form id="price-form" dir="rtl">
@@ -68,15 +104,17 @@
                 חשוב מאוד
                 </label>
             </form>
-        
             
             <!-- Slider for budget selection -->
             <div class="budget-selection">
                 <p dir = "rtl">מה התקציב שלך למחשב?</p>
-                <input type="range" min="0" max="8000" value="3000" step="100" id="budgetSlider" oninput="updateSliderValue()" dir ="rtl">
+                <input type="range" min="0" max="20000" value="3000" step="100" id="budgetSlider" oninput="updateSliderValue()" dir ="rtl">
                 <p dir = "rtl">תקציב נבחר: ₪<span id="budgetValue">3000</span></p>
             </div>
+        
+        
 
+          
             <!--bottons sections -->
             <div class="btnsection">
             <button class="nextBtn" onclick="nextStep()">הבא: משימות</button>
@@ -96,7 +134,7 @@
 
         <!--second question-->
         <div class="section" id="question2">
-            <h1 dir="rtl">משימות</h1>
+            <h1 dir="rtl"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="vertical-align:middle;" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-list-check" ><path d="M3.5 5.5l1.5 1.5l2.5 -2.5"></path><path d="M3.5 11.5l1.5 1.5l2.5 -2.5"></path><path d="M3.5 17.5l1.5 1.5l2.5 -2.5"></path><path d="M11 6l9 0"></path><path d="M11 12l9 0"></path><path d="M11 18l9 0"></path></svg>משימות</h1>
             <hr class = "linebreak">
             <p dir="rtl">איזה משימות אתם מתכוונים לעשות עם המחשב?</p>
 
@@ -113,7 +151,7 @@
                     </label>
                     <label>
                         <input type="checkbox" name="activity" value="תכנות קל(סטודנטים)">
-                        תכנות קל(סטודנטים)
+                        תכנות קל (סטודנטים)
                     </label>
                     <label>
                         <input type="checkbox" name="activity" value="עריכת תמונות">
@@ -169,7 +207,7 @@
 
         <!--third question-->
         <div class="section" id="question3">
-            <h1 dir="rtl">גודל</h1>
+            <h1 dir="rtl"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-dimensions"><path d="M3 5h11"></path><path d="M12 7l2 -2l-2 -2"></path><path d="M5 3l-2 2l2 2"></path><path d="M19 10v11"></path><path d="M17 19l2 2l2 -2"></path><path d="M21 12l-2 -2l-2 2"></path><path d="M3 10m0 2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v7a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2z"></path></svg>גודל</h1>
             <hr class = "linebreak">
             <p dir="rtl">כמה הגודל חשוב לכם?</p>
 
@@ -199,7 +237,6 @@
             <div class="size-selection">
                 <p dir = "rtl">איזה גודל הנך מעדיף ללפטופ שלך?</p>
                 <form id="sizeType-form">
-                    <p>What size laptop do you prefer?</p>
                     <div class="sizeType-container">
                         <label class="size-checkbox-style" dir="rtl">
                             <input type="checkbox" name="size" value="קטנטן" dir="rtl">
@@ -207,21 +244,33 @@
                                     <p class="size-radio-main" dir="rtl">קטנטן</p>
                                     <p class="size-radio-span" dir="rtl">פחות מ13 אינצ׳</p>
                                 </div>
-                        </label><br>
+                        </label>
+                        <br>
                         
                         <label class="size-checkbox-style" dir="rtl">
                             <input type="checkbox" name="size" value="קטן">
-                            קטן <br><span>13" - 14"</span>
-                        </label><br>
+                                <div class="size-radio-text" dir="rtl">
+                                    <p class="size-radio-main" dir="rtl">קטן</p>
+                                    <p class="size-radio-span" dir="rtl">בין 13 ל14 אינצ׳</p>
+                                </div>
+                        </label>
+                        <br>
                         
                         <label class="size-checkbox-style" dir="rtl">
                             <input type="checkbox" name="size" value="בינוני">
-                            בינוני <br><span>14" - 16"</span>
-                        </label><br>
+                                <div class="size-radio-text" dir="rtl">
+                                    <p class="size-radio-main" dir="rtl">בינוני</p>
+                                    <p class="size-radio-span" dir="rtl">בין 14 ל16 אינצ׳</p>
+                                </div>                        
+                            </label>
+                            <br>
                         
                         <label class="size-checkbox-style" dir="rtl">
                             <input type="checkbox" name="size" value="גדול">
-                            גדול <br><span>מעל 16"</span>
+                            <div class="size-radio-text" dir="rtl">
+                                    <p class="size-radio-main" dir="rtl">גדול</p>
+                                    <p class="size-radio-span" dir="rtl">מעל 16 אינצ׳</p>
+                            </div>                        
                         </label>
                     </div>
                 </form>
@@ -247,7 +296,7 @@
 
         <!--fourth question-->
         <div class="section" id="question4">
-            <h1 dir="rtl">ניידות</h1>
+            <h1 dir="rtl"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-briefcase"><path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path><path d="M12 12l0 .01"></path><path d="M3 13a20 20 0 0 0 18 0"></path></svg>ניידות</h1>
             <hr class = "linebreak">
             <p dir="rtl">כמה חשוב לכם שהוא יהיה קל לסחיבה ונייד? רוב הזמן אתם בבית או בדרכים הרבה?</p>
 
@@ -293,11 +342,14 @@
 
         <!--results page-->
         <div class="section" id="question5">
-            <h1 dir="rtl">תוצאות</h1>
+            <h1 dir="rtl"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-discount-check" style="vertical-align: middle;"><path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1"></path><path d="M9 12l2 2l4 -4"></path></svg>תוצאות</h1>
             <div class="congratulations-box">
-                <p dir="rtl"><strong dir ="rtl">מזל טוב!</strong> סיימת את השאלון, צפה בתוצאות למטה.</p>
+                <p dir="rtl"><strong dir ="rtl">מזל טוב!</strong> סיימתם את השאלון, צפו בתוצאות למטה בעוד מספר שניות.</p>
+                <ul>
+                    <li dir="rtl" style="margin-right:10px">כדי לבצע חיפוש חדש, רעננו את העמוד</li>
+                    <li dir="rtl" style="margin-right:10px">אם הנכם רואים כי אין התאמה מלאה, נסו לרכך את ההעדפות</li>
+                </ul>
             </div>
-            <hr class = "linebreak">
             <div id="results-container"></div>
 
            

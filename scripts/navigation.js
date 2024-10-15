@@ -52,7 +52,7 @@ function captureFormData(stepIndex) {
         .filter(size => size.checked)  
         .map(size => size.value);
 
-        userPreferences.screenSize = selectedSizes.length > 0 ? [selectedSizes] : ['קטנטן','גדול','בינוני','קטן']
+        userPreferences.screenSize = selectedSizes.length > 0 ? selectedSizes : ['קטנטן','גדול','בינוני','קטן']
         userPreferences.sizeImportance = sizeValue || userPreferences.sizeImportance; 
         console.log(userPreferences.sizeImportance)
         console.log(userPreferences.screenSize)
@@ -75,7 +75,7 @@ function showResults() {
         .then(response => response.json())
         .then(laptops => {
             const results = findBestLaptops(laptops, userPreferences);  
-            displayResults(results);
+            displayResults(results, 5);
         })
         .catch(error => console.error('Error fetching laptops:', error));
 }
@@ -89,7 +89,10 @@ function showStep(stepIndex) {
         sections.forEach(step => step.classList.remove('section-active'));
         welcomePage.style.display = 'block';
         progress.style.display = 'none'; // Hide progress bar for welcome page
-    } else {
+
+    }
+     
+    else {
         // Hide welcome page, show the current section
         welcomePage.style.display = 'none';
         sections.forEach((section, index) => {
@@ -98,7 +101,12 @@ function showStep(stepIndex) {
                 section.classList.add('section-active');
             }
         });
+        if(stepIndex == 4){
+            progress.style.display = 'none'
+        } 
+        else{
         progress.style.display = 'block'; // Show progress bar for sections
+        }
         // Update progress
         progress.innerText = `שאלה ${stepIndex + 1} מתוך ${sections.length}`;
 
