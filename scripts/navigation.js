@@ -21,8 +21,8 @@ function captureFormData(stepIndex) {
         //budget value:
         const budgetSlider = document.getElementById('budgetSlider');
         userPreferences.budget = budgetSlider.value || userPreferences.budget;
-        console.log(userPreferences.priceImportance)
-        console.log(userPreferences.budget)
+        //console.log(userPreferences.priceImportance)
+        //console.log(userPreferences.budget)
 
 
     } else if (stepIndex === 1) {
@@ -39,7 +39,7 @@ function captureFormData(stepIndex) {
             .map(task => task.value);
 
         userPreferences.tasks = [...selectedTasks1, ...selectedTasks2].length > 0 ? [...selectedTasks1, ...selectedTasks2] : userPreferences.tasks;
-        console.log(userPreferences.tasks)
+        //console.log(userPreferences.tasks)
 
 
     } else if (stepIndex === 2) {
@@ -54,8 +54,8 @@ function captureFormData(stepIndex) {
 
         userPreferences.screenSize = selectedSizes.length > 0 ? selectedSizes : ['קטנטן','גדול','בינוני','קטן']
         userPreferences.sizeImportance = sizeValue || userPreferences.sizeImportance; 
-        console.log(userPreferences.sizeImportance)
-        console.log(userPreferences.screenSize)
+        //console.log(userPreferences.sizeImportance)
+        //console.log(userPreferences.screenSize)
 
 
     } else if (stepIndex === 3) {
@@ -63,7 +63,7 @@ function captureFormData(stepIndex) {
         const portabilityForm = document.forms['portability-form'];
         const portabilityValue = portabilityForm.elements['portabilityImportance'].value;
         userPreferences.portabilityImportance = portabilityValue || userPreferences.portabilityImportance;  
-        console.log(userPreferences.portabilityImportance)
+        //console.log(userPreferences.portabilityImportance)
 
     }
 
@@ -71,13 +71,22 @@ function captureFormData(stepIndex) {
 
 // Function to calculate and display the results
 function showResults() {
+
+    showLoadingSpinner();
+
     fetch('laptops.json')
         .then(response => response.json())
         .then(laptops => {
             const results = findBestLaptops(laptops, userPreferences);  
+            hideLoadingSpinner();
             displayResults(results, 5);
         })
-        .catch(error => console.error('Error fetching laptops:', error));
+        .catch(error => {
+            console.error('Error fetching laptops:', error);
+
+            // Hide the loading spinner in case of error
+            hideLoadingSpinner();
+        });
 }
 
 
@@ -108,7 +117,7 @@ function showStep(stepIndex) {
         progress.style.display = 'block'; // Show progress bar for sections
         }
         // Update progress
-        progress.innerText = `שאלה ${stepIndex + 1} מתוך ${sections.length}`;
+        progress.innerText = `שאלה ${stepIndex + 1} מתוך ${sections.length - 1} `;
 
  
     }
@@ -144,5 +153,17 @@ function updateBudgetValue(value) {
     document.getElementById('budgetValue').innerText = value;
 }
 
+
+// Function to show the loading spinner
+function showLoadingSpinner() {
+    const spinner = document.getElementById('loading-spinner');
+    spinner.style.display = 'flex';
+}
+
+// Function to hide the loading spinner
+function hideLoadingSpinner() {
+    const spinner = document.getElementById('loading-spinner');
+    spinner.style.display = 'none';
+}
 
 

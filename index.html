@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--findmylaptop.com-->
+        <!--findmylaptop.com-->
     <title>find my laptop</title>
     <link rel="stylesheet" href="sheets.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +48,7 @@
 
     <div class="container">
 
-        <div id="progress" class="progress" dir="rtl">שאלה 1 מתוך 6</div>
+        <div id="progress" class="progress" dir="rtl">שאלה 1 מתוך 4</div>
 
         <!--The welcome page-->
         <div class="section-active" id="welcome">
@@ -110,8 +110,11 @@
                 <p dir = "rtl">מה התקציב שלך למחשב?</p>
                 <input type="range" min="0" max="20000" value="3000" step="100" id="budgetSlider" oninput="updateSliderValue()" dir ="rtl">
                 <p dir = "rtl">תקציב נבחר: ₪<span id="budgetValue">3000</span></p>
+               
+
             </div>
-        
+
+         
         
 
           
@@ -350,7 +353,12 @@
                     <li dir="rtl" style="margin-right:10px">אם הנכם רואים כי אין התאמה מלאה, נסו לרכך את ההעדפות</li>
                 </ul>
             </div>
-            <div id="results-container"></div>
+            <div id="results-container">
+                <!-- Loading Spinner -->
+                    <div id="loading-spinner" class="loading-spinner" style="display: none;">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
 
            
         
@@ -380,7 +388,7 @@
     <script src="scripts/navigation.js"></script>
     <script src="scripts/algo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-circle-progress/dist/circle-progress.min.js" type="module"></script>
-
+    
     
 
 

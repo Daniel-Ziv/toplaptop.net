@@ -55,4 +55,5 @@ function updateSliderValue() {
   }
 
   
+  //double range slider on budget selection: 
   

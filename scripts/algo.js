@@ -150,7 +150,6 @@ const forGamingWeights = {
 };
 
 
-// Evaluate a laptop based on user preferences
 function calculateLaptopScore(laptop, combinedWeights, userPreferences) {
     let score = 0;
     let maxScore = 0;
@@ -204,25 +203,24 @@ function calculateLaptopScore(laptop, combinedWeights, userPreferences) {
         const adjustedPriceDiff = (priceDiff - tolerance)/2
         const priceScore = Math.max(0, 100 - adjustedPriceDiff);
         score += priceScore;
-        console.log("price score of " + laptop.name + "is: " + priceScore); 
     }
 
     maxScore += 100;
-    console.log("new max score: " + maxScore);
+    //console.log("new max score: " + maxScore);
 
 
     // Task evaluation
-    const maxRamScore = 32;  // Assume 32GB is the max for RAM
-    const maxCpuScore = 5.0; // Assume 5 GHz as a reasonable max for CPU
-    const maxScreenHzScore = 144;  // Assume 144Hz is the max refresh rate
-    const maxStorageSpaceScore = 2000;  // Assume 2TB as a reasonable max storage
+    const maxRamScore = 32;  
+    const maxCpuScore = 5.0; 
+    const maxScreenHzScore = 144;  
+    const maxStorageSpaceScore = 2000; 
 
     // RAM Size
-    console.log("score before ram added: " + score);
+    //console.log("score before ram added: " + score);
     score += Math.min((ramSize / maxRamScore) * combinedWeights.ram_size * 100,100);
     maxScore += 100 * combinedWeights.ram_size;
-    console.log("score after ram added: " + score);
-    console.log("new max score: " + maxScore);
+    //console.log("score after ram added: " + score);
+    //console.log("new max score: " + maxScore);
 
     // CPU GHz
 
@@ -266,35 +264,35 @@ function calculateLaptopScore(laptop, combinedWeights, userPreferences) {
     
             // CPU GHz + CPU Type
         const cpuScoreMultiplier = getCpuScore(laptop.cpu);  // Get CPU core score based on type
-        console.log("cpu score multiplier: " + cpuScoreMultiplier);
+        //console.log("cpu score multiplier: " + cpuScoreMultiplier);
         const cpuScore = Math.min((cpuGhz / maxCpuScore) * cpuScoreMultiplier * 100, 100);  // Adjust by CPU type
 
         score += cpuScore * combinedWeights.cpu_ghz;
         maxScore += 100 * combinedWeights.cpu_ghz;
 
-        console.log("new max score after CPU added: " + maxScore);
-        console.log("score after CPU added: " + score);
+        //console.log("new max score after CPU added: " + maxScore);
+        //console.log("score after CPU added: " + score);
 
 
     // Screen Refresh Rate (Hz)
     score += Math.min((screenHz / maxScreenHzScore) * combinedWeights.screenHz * 100,100);
     maxScore += 100 * combinedWeights.screenHz;
-    console.log("score after hz added: " + score);
-    console.log("new max score: " + maxScore);
+    //console.log("score after hz added: " + score);
+    //console.log("new max score: " + maxScore);
 
     // Storage Type (SSD or HDD)
     const storageTypeScore = storageTypeWeights[laptop.storage_type] || 0;
     score += storageTypeScore * combinedWeights.storage_type * 100;
     maxScore += 100 * combinedWeights.storage_type;
-    console.log("score after ssd added: " + score);
-    console.log("new max score: " + maxScore);
+    //console.log("score after ssd added: " + score);
+    //console.log("new max score: " + maxScore);
 
     // RAM Type (DDR3, DDR4, DDR5)
     const ramTypeScore = ramTypeWeights[laptop.ram_type] || 0;
     score += ramTypeScore * combinedWeights.ram_type * 100;
     maxScore += 100 * combinedWeights.ram_type;
-    console.log("score after ram type added: " + score);
-    console.log("new max score: " + maxScore);
+    //console.log("score after ram type added: " + score);
+    //console.log("new max score: " + maxScore);
 
     // Storage Space
     if (storageSpace > 2000){
@@ -302,8 +300,8 @@ function calculateLaptopScore(laptop, combinedWeights, userPreferences) {
     }
     score += (storageSpace / maxStorageSpaceScore) * combinedWeights.storage_space * 100;
     maxScore += 100 * combinedWeights.storage_space;
-    console.log("score after storage space added: " + score);
-    console.log("new max score: " + maxScore);
+    //console.log("score after storage space added: " + score);
+    //console.log("new max score: " + maxScore);
 
    // For Gaming
     let forGamingScore = forGamingWeights[laptop.for_gaming] || 0;
@@ -331,8 +329,8 @@ function calculateLaptopScore(laptop, combinedWeights, userPreferences) {
         // Nothing is added to the score or maxScore
         forGamingScore = 0;  // Reset the score to 0 just to make sure
     }
-    console.log("score after gaming added: " + score);
-    console.log("new max score: " + maxScore);
+    //console.log("score after gaming added: " + score);
+    //console.log("new max score: " + maxScore);
 
 
 
@@ -397,8 +395,8 @@ function calculateLaptopScore(laptop, combinedWeights, userPreferences) {
     // Add the best size score to the total score
     score += bestSizeScore;
     maxScore += 100;
-    console.log("score after size added: " + score);
-    console.log("new max score: " + maxScore);
+    //console.log("score after size added: " + score);
+    //console.log("new max score: " + maxScore);
 
 
    // Define weight thresholds based on portability importance
@@ -426,7 +424,7 @@ function calculateLaptopScore(laptop, combinedWeights, userPreferences) {
     }
 
     maxScore += 100;
-    console.log("new max score: " + maxScore);
+    //console.log("new max score: " + maxScore);
 
     if (isNaN(score)) {
         return NaN;
@@ -437,9 +435,9 @@ function calculateLaptopScore(laptop, combinedWeights, userPreferences) {
          console.error(`Max Score is 0, which is invalid for laptop: ${laptop.name}`);
          return NaN;
      } 
-    console.log("score after weight is " + score);
+    //console.log("score after weight is " + score);
     // Return the percentage score
-    console.error("Score is NaN after calculation:", score);
+    //console.error("Score is NaN after calculation:", score);
     return (score / maxScore) * 100;
 
 }
@@ -523,7 +521,7 @@ function displayResults(results, limit) {
         
         document.querySelectorAll('.progress-circle').forEach(function(progressCircle) {
         const score = progressCircle.getAttribute('data-score');
-        console.log(laptop.score)
+        //console.log(laptop.score)
         createProgressCircle(progressCircle, score);  // Initialize CircleProgress with the laptop's score
     });
 
