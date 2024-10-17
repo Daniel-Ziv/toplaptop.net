@@ -409,7 +409,7 @@ function calculateLaptopScore(laptop, combinedWeights, userPreferences) {
 
     // Get the user's portability importance level
     const portabilityLevel = userPreferences.portabilityImportance;
-
+    console.log(portabilityLevel)
     // Get the corresponding weight threshold for the user's portability level
     const maxWeight = portabilityThresholds[portabilityLevel];
 
