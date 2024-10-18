@@ -236,7 +236,7 @@ function calculateLaptopScore(laptop, combinedWeights, userPreferences) {
     // RAM Size
     score += Math.min((ramSize / maxRamScore) * combinedWeights.ram_size * 100,100);
     maxScore += 100 * combinedWeights.ram_size;
-    console.log("ram score: " +  score +  "Max score: " + maxScore);
+    //console.log("ram score: " +  score +  "Max score: " + maxScore);
 
 
     // CPU GHz
@@ -420,6 +420,7 @@ function calculateLaptopScore(laptop, combinedWeights, userPreferences) {
     // Get the corresponding weight threshold for the user's portability level
     const maxWeight = portabilityThresholds[portabilityLevel];
     globalMaxWeight = maxWeight;
+    console.log(globalMaxWeight);
     // Evaluate the laptop's weight
     if (weight <= maxWeight) {
         // Full score if the weight is within the acceptable limit
@@ -517,7 +518,8 @@ function displayResults(results, limit) {
         const minBudget = userPreferences.budget.min;
         const maxBudget = userPreferences.budget.max;
         const laptopPrice = parseInt(laptop.price.replace(/[^\d]/g, '')) || 0;
-        const laptopWeight = parseInt(laptop.weight.replace(/[^\d]/g, '')) || 0;
+        const laptopWeight = parseFloat(laptop.weight.replace(/[^\d.]/g, '')) || 0;    
+
         const laptopScreenSize_ = parseFloat(laptop.screen_size.replace(/[^\d.]/g, '')) || 0;
         const preferredScreenSizes = userPreferences.screenSize; // Array of user-selected sizes
         let weightIndicatorSVG;
@@ -529,7 +531,9 @@ function displayResults(results, limit) {
         } else {
             budgetIndicatorSVG = xSVG;
         }
-        
+        console.log("1 " + laptopWeight);
+        console.log("2 " + globalMaxWeight);
+
         if (laptopWeight < globalMaxWeight) {
             weightIndicatorSVG = checkMarkSVG;
         } else {
