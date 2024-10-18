@@ -108,7 +108,7 @@
             <!-- Slider for budget selection -->
             <div class="budget-selection">
                 <p dir = "rtl">מה התקציב שלך למחשב?</p>
-                <input type="range" min="0" max="20000" value="3000" step="100" id="budgetSlider" oninput="updateSliderValue()" dir ="rtl">
+                <input type="range" min="500" max="6000" value="3000" step="100" id="budgetSlider" oninput="updateSliderValue()" dir ="rtl">
                 <p dir = "rtl">תקציב נבחר: ₪<span id="budgetValue">3000</span></p>
                
 
@@ -210,9 +210,9 @@
 
         <!--third question-->
         <div class="section" id="question3">
-            <h1 dir="rtl"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-dimensions"><path d="M3 5h11"></path><path d="M12 7l2 -2l-2 -2"></path><path d="M5 3l-2 2l2 2"></path><path d="M19 10v11"></path><path d="M17 19l2 2l2 -2"></path><path d="M21 12l-2 -2l-2 2"></path><path d="M3 10m0 2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v7a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2z"></path></svg>גודל</h1>
+            <h1 dir="rtl"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-dimensions"><path d="M3 5h11"></path><path d="M12 7l2 -2l-2 -2"></path><path d="M5 3l-2 2l2 2"></path><path d="M19 10v11"></path><path d="M17 19l2 2l2 -2"></path><path d="M21 12l-2 -2l-2 2"></path><path d="M3 10m0 2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v7a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2z"></path></svg>גודל מסך</h1>
             <hr class = "linebreak">
-            <p dir="rtl">כמה הגודל חשוב לכם?</p>
+            <p dir="rtl">כמה גודל המסך חשוב לכם?</p>
 
             <form dir="rtl" id ="size-form">
                 <label>
@@ -306,22 +306,23 @@
             <form dir="rtl" id ="portability-form">
                 <label>
                 <input type="radio" name="portabilityImportance" value="לא חשוב" onclick="hidePortabilityText();">
-                לא חשוב
+                לא חשוב (כל משקל)
+
                 </label><br>
                 
                 <label>
                 <input type="radio" name="portabilityImportance" value="קצת חשוב" onclick="showPortabilityText();">
-                קצת חשוב
+                קצת חשוב (עד 2.5 קילו)
                 </label><br>
                 
                 <label>
                 <input type="radio" name="portabilityImportance" value="חשוב" onclick="showPortabilityText();">
-                    חשוב
+                    חשוב (עד 2 קילו)
                 </label><br>
                 
                 <label>
                 <input type="radio" name="portabilityImportance" value="חשוב מאוד" onclick="showPortabilityText();">
-                חשוב מאוד
+                חשוב מאוד (עד 1.7 קילו)
                 </label>
             </form>
 

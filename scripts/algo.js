@@ -464,6 +464,10 @@ function findBestLaptops(laptops, userPreferences) {
 }
 
 
+
+
+
+
 // Display results on the page
 function displayResults(results, limit) {
     
