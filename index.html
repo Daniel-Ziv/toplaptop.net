@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Assistant:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="icon" href="images/12.png" type="image/jpeg">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.min.js"></script>
+
     
 </head>
 <body>
@@ -60,8 +63,8 @@
 
             <p dir="rtl">האתר מכיל שאלון קצר על מה שאתה צריך מהמחשב לפי הקריטריונים הבאים:</p>
             <ol dir="rtl">
-                <li>מחיר</li>
                 <li>משימות</li>
+                <li>תקציב</li>
                 <li>גודל</li>
                 <li>ניידות</li>
               </ol>
@@ -73,69 +76,6 @@
         </div>
 
         <!--first question (price)-->
-        <div class="section" id="question1">
-            <h1 dir="rtl">
-                <svg class="svg-icon" style="width: 24px;height:24px;vertical-align: middle;fill: currentColor;overflow: hidden; margin-left:-5px;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M676.57216 356.571429v283.428571c0 10.276571-8.009143 18.285714-18.285714 18.285714h-91.428572a18.066286 18.066286 0 0 1-18.285714-18.285714V356.571429A155.574857 155.574857 0 0 0 393.143589 201.142857H237.715017v658.285714c0 10.276571-8.009143 18.285714-18.285714 18.285715H128.000731a18.066286 18.066286 0 0 1-18.285714-18.285715v-768c0-10.276571 8.009143-18.285714 18.285714-18.285714h265.142858a283.392 283.392 0 0 1 283.428571 283.428572z m219.428571-265.142858v502.857143A283.392 283.392 0 0 1 612.57216 877.714286H347.429303a18.066286 18.066286 0 0 1-18.285714-18.285715v-548.571428c0-10.276571 8.009143-18.285714 18.285714-18.285714H438.857874c10.276571 0 18.285714 8.009143 18.285715 18.285714v438.857143h155.428571A155.574857 155.574857 0 0 0 768.000731 594.285714V91.428571c0-10.276571 8.009143-18.285714 18.285715-18.285714H877.715017c10.276571 0 18.285714 8.009143 18.285714 18.285714z" fill="" />
-                </svg>
-                מחיר
-              </h1>
-              
-            <hr class = "linebreak">
-            <p dir="rtl">כמה המחיר חשוב לכם?</p>
-            <form id="price-form" dir="rtl">
-                <label>
-                <input type="radio" name="priceImportance" value="בכלל לא חשוב" onclick="hideSlider();">
-                בכלל לא חשוב
-                </label><br>
-                
-                <label>
-                <input type="radio" name="priceImportance" value="קצת חשוב" onclick="showSlider();">
-                קצת חשוב
-                </label><br>
-                
-                <label>
-                <input type="radio" name="priceImportance" value="מאוד חשוב" onclick="showSlider();">
-                    חשוב
-                </label><br>
-                
-                <label>
-                <input type="radio" name="priceImportance" value="חשוב מאוד" onclick="showSlider();">
-                חשוב מאוד
-                </label>
-            </form>
-            
-            <!-- Slider for budget selection -->
-            <div class="budget-selection">
-                <p dir = "rtl">מה התקציב שלך למחשב?</p>
-                <input type="range" min="500" max="6000" value="3000" step="100" id="budgetSlider" oninput="updateSliderValue()" dir ="rtl">
-                <p dir = "rtl">תקציב נבחר: ₪<span id="budgetValue">3000</span></p>
-               
-
-            </div>
-
-         
-        
-
-          
-            <!--bottons sections -->
-            <div class="btnsection">
-            <button class="nextBtn" onclick="nextStep()">הבא: משימות</button>
-            <button class="backBtn" onclick="prevStep()">
-                חזור אחורה
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
-                    <path d="M5 12l14 0"></path>
-                    <path d="M5 12l6 6"></path>
-                    <path d="M5 12l6 -6"></path>
-                </svg>
-            </button> 
-            </div>
-            
-        
-
-        </div>
-
-        <!--second question-->
         <div class="section" id="question2">
             <h1 dir="rtl"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="vertical-align:middle;" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-list-check" ><path d="M3.5 5.5l1.5 1.5l2.5 -2.5"></path><path d="M3.5 11.5l1.5 1.5l2.5 -2.5"></path><path d="M3.5 17.5l1.5 1.5l2.5 -2.5"></path><path d="M11 6l9 0"></path><path d="M11 12l9 0"></path><path d="M11 18l9 0"></path></svg>משימות</h1>
             <hr class = "linebreak">
@@ -192,7 +132,7 @@
                 </form>
                 </div>
             </div>
-
+            <div id="task-error-message" style="color: rgb(242, 32, 32); display: none; margin-top:5px;"></div>
             <!--bottons sections -->
             <div class="btnsection">
                 <button class="nextBtn" onclick="nextStep()">הבא: גודל המחשב</button>
@@ -206,7 +146,66 @@
                 </button> 
                 </div>
         </div>
+        <!--second question-->
+       
+        <div class="section" id="question1">
+            <h1 dir="rtl">
+                <svg class="svg-icon" style="width: 24px;height:24px;vertical-align: middle;fill: currentColor;overflow: hidden; margin-left:-5px;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M676.57216 356.571429v283.428571c0 10.276571-8.009143 18.285714-18.285714 18.285714h-91.428572a18.066286 18.066286 0 0 1-18.285714-18.285714V356.571429A155.574857 155.574857 0 0 0 393.143589 201.142857H237.715017v658.285714c0 10.276571-8.009143 18.285714-18.285714 18.285715H128.000731a18.066286 18.066286 0 0 1-18.285714-18.285715v-768c0-10.276571 8.009143-18.285714 18.285714-18.285714h265.142858a283.392 283.392 0 0 1 283.428571 283.428572z m219.428571-265.142858v502.857143A283.392 283.392 0 0 1 612.57216 877.714286H347.429303a18.066286 18.066286 0 0 1-18.285714-18.285715v-548.571428c0-10.276571 8.009143-18.285714 18.285714-18.285714H438.857874c10.276571 0 18.285714 8.009143 18.285715 18.285714v438.857143h155.428571A155.574857 155.574857 0 0 0 768.000731 594.285714V91.428571c0-10.276571 8.009143-18.285714 18.285715-18.285714H877.715017c10.276571 0 18.285714 8.009143 18.285714 18.285714z" fill="" />
+                </svg>
+                תקציב
+              </h1>
+              
+            <hr class = "linebreak">
+            <p dir="rtl">כמה חשוב לכם שהמחיר לא יחרוג מהתקציב? </p>
+            <form id="price-form" dir="rtl">
+                <label>
+                <input type="radio" name="priceImportance" value="בכלל לא חשוב" onclick="hideSlider();">
+                אין לי תקציב מוגדר
+                </label><br>
+                
+                <label>
+                <input type="radio" name="priceImportance" value="קצת חשוב" checked onclick="showSlider(); ">
+                קצת חשוב
+                </label><br>
+                
+                <label>
+                <input type="radio" name="priceImportance" value="מאוד חשוב" onclick="showSlider();">
+                    חשוב
+                </label><br>
+                
+                <label>
+                <input type="radio" name="priceImportance" value="חשוב מאוד" onclick="showSlider();">
+                חשוב מאוד
+                </label>
+            </form>
+            
+            <!-- Slider for budget selection -->
+            <div class="budget-selection">
+                <p dir = "rtl">מה התקציב שלך למחשב?</p>
+                <div id="doubleRangeSlider" style="margin-top: 50px; margin-bottom: 10px;"></div>
+                <p class="size-radio-span" id="recommendedBudgetSpan" dir="rtl" style="font-size: 14px;">על סמך המשימות שנבחרו,<strong> זה התקציב המומלץ </strong>לתוצאות הטובות ביותר</p>
+            </div>
+        
+        
 
+          
+            <!--bottons sections -->
+            <div class="btnsection">
+            <button class="nextBtn" onclick="nextStep()">הבא: משימות</button>
+            <button class="backBtn" onclick="prevStep()">
+                חזור אחורה
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+                    <path d="M5 12l14 0"></path>
+                    <path d="M5 12l6 6"></path>
+                    <path d="M5 12l6 -6"></path>
+                </svg>
+            </button> 
+            </div>
+            
+        
+
+        </div>
 
         <!--third question-->
         <div class="section" id="question3">
@@ -312,7 +311,7 @@
                 
                 <label>
                 <input type="radio" name="portabilityImportance" value="קצת חשוב" onclick="showPortabilityText();">
-                קצת חשוב (עד 2.5 קילו)
+                 קצת חשוב (עד 2.5 קילו) 
                 </label><br>
                 
                 <label>
@@ -353,6 +352,10 @@
                     <li dir="rtl" style="margin-right:10px">כדי לבצע חיפוש חדש, רעננו את העמוד</li>
                     <li dir="rtl" style="margin-right:10px">אם הנכם רואים כי אין התאמה מלאה, נסו לרכך את ההעדפות</li>
                 </ul>
+            </div>
+            <div class="SortBtnSection">
+                <button id="filterPriceBtn" class="filterPriceBtn" onclick="togglePriceFilter()">מיין מהזול ליקר</button>
+                <button id="sortScoreBtn" class="sortScoreBtn" onclick="sortByScore()">מיין לפי התאמה</button>
             </div>
             <div id="results-container">
                 <!-- Loading Spinner -->

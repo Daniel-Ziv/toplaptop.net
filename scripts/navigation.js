@@ -5,6 +5,7 @@ const progress = document.getElementById('progress');
 const nextBtn = document.getElementById('nextBtn');
 const backBtn = document.getElementById('backBtn');
 const resultsSection = document.getElementById('results-container');  // Results section
+let currentSortBy = 'score';
 
 
 
@@ -13,33 +14,43 @@ const resultsSection = document.getElementById('results-container');  // Results
 function captureFormData(stepIndex) {
     // Based on the step index, capture the corresponding form data
     if (stepIndex === 0) {
-        // Price Importance (question 1)
+         // Tasks (question 1)
+         const tasksForm = document.forms['tasks-form'];
+         const tasksForm2 = document.forms['tasks-form2'];
+ 
+         const selectedTasks1 = Array.from(tasksForm.elements['activity'])
+             .filter(task => task.checked)
+             .map(task => task.value);
+         
+         const selectedTasks2 = Array.from(tasksForm2.elements['activity'])
+             .filter(task => task.checked)
+             .map(task => task.value);
+ 
+         userPreferences.tasks = [...selectedTasks1, ...selectedTasks2].length > 0 ? [...selectedTasks1, ...selectedTasks2] : userPreferences.tasks;
+         //console.log(userPreferences.tasks)
+
+         console.log(userPreferences.tasks);
+
+    } else if (stepIndex === 1) {
+      
+        // Price Importance (question 2)
         const priceForm = document.forms['price-form'];
         const priceValue = priceForm.elements['priceImportance'].value;
         userPreferences.priceImportance = priceValue || userPreferences.priceImportance;
         
-        //budget value:
-        const budgetSlider = document.getElementById('budgetSlider');
-        userPreferences.budget = budgetSlider.value || userPreferences.budget;
-        //console.log(userPreferences.priceImportance)
-        //console.log(userPreferences.budget)
+        // Get the selected price range from the noUiSlider
+        const budgetSlider = document.getElementById('doubleRangeSlider');
+        const selectedRange = budgetSlider.noUiSlider.get();  // This returns an array of [min, max]
+        userPreferences.budget = {
+            min: parseInt(selectedRange[0]),
+            max: parseInt(selectedRange[1])
+        };
+        console.log(userPreferences.budget.min);
+        console.log(userPreferences.budget.max);
+        console.log(userPreferences.priceImportance);
 
 
-    } else if (stepIndex === 1) {
-        // Tasks (question 2)
-        const tasksForm = document.forms['tasks-form'];
-        const tasksForm2 = document.forms['tasks-form2'];
-
-        const selectedTasks1 = Array.from(tasksForm.elements['activity'])
-            .filter(task => task.checked)
-            .map(task => task.value);
-        
-        const selectedTasks2 = Array.from(tasksForm2.elements['activity'])
-            .filter(task => task.checked)
-            .map(task => task.value);
-
-        userPreferences.tasks = [...selectedTasks1, ...selectedTasks2].length > 0 ? [...selectedTasks1, ...selectedTasks2] : userPreferences.tasks;
-        //console.log(userPreferences.tasks)
+// You can now use userPreferences.budgetRange.min and userPreferences.budgetRange.max later on
 
 
     } else if (stepIndex === 2) {
@@ -54,8 +65,9 @@ function captureFormData(stepIndex) {
 
         userPreferences.screenSize = selectedSizes.length > 0 ? selectedSizes : ['קטנטן','גדול','בינוני','קטן']
         userPreferences.sizeImportance = sizeValue || userPreferences.sizeImportance; 
-        //console.log(userPreferences.sizeImportance)
-        //console.log(userPreferences.screenSize)
+        console.log(userPreferences.sizeImportance)
+        console.log(userPreferences.screenSize)
+    
 
 
     } else if (stepIndex === 3) {
@@ -63,10 +75,32 @@ function captureFormData(stepIndex) {
         const portabilityForm = document.forms['portability-form'];
         const portabilityValue = portabilityForm.elements['portabilityImportance'].value;
         userPreferences.portabilityImportance = portabilityValue || userPreferences.portabilityImportance;  
-        //console.log(userPreferences.portabilityImportance)
+        console.log(userPreferences.portabilityImportance)
 
     }
 
+}
+
+// Function to validate that at least one task is selected
+function validateTaskSelection() {
+    const tasksForm = document.forms['tasks-form'];
+    const tasksForm2 = document.forms['tasks-form2'];
+
+    const selectedTasks1 = Array.from(tasksForm.elements['activity']).filter(task => task.checked);
+    const selectedTasks2 = Array.from(tasksForm2.elements['activity']).filter(task => task.checked);
+
+    const selectedTasks = [...selectedTasks1, ...selectedTasks2];
+
+    const errorMessageDiv = document.getElementById('task-error-message');
+
+    if (selectedTasks.length === 0) {
+        errorMessageDiv.textContent = "חובה לבחור לפחות משימה אחת"; // Set the error message
+        errorMessageDiv.style.display = "block"; // Show the error message
+        return false; // Prevent proceeding to the next step
+    }
+
+    errorMessageDiv.style.display = "none"; // Hide the error message if selection is valid
+    return true; // Allow proceeding to the next step
 }
 
 // Function to calculate and display the results
@@ -82,7 +116,7 @@ function showResults() {
             displayResults(results, 5);
         })
         .catch(error => {
-            console.error('Error fetching laptops:', error);
+            console.error('Error Fetching laptops:', error);
 
             // Hide the loading spinner in case of error
             hideLoadingSpinner();
@@ -124,6 +158,13 @@ function showStep(stepIndex) {
 }
 
 function nextStep() {
+    if (currentStep === 0) {
+        // Validate task selection on step 0 (task form)
+        if (!validateTaskSelection()) {
+            return; // Prevent moving to the next step if no tasks are selected
+        }
+    }
+
     if (currentStep >= 0 && currentStep < sections.length - 1) {
         captureFormData(currentStep);  // Capture data from the current step
     }
@@ -137,6 +178,20 @@ function nextStep() {
             showResults();
         }
     }
+    if (currentStep === 1) {
+        const suggestedBudget = combineBudgetRanges(userPreferences.tasks);
+        userPreferences.suggestedBudget = suggestedBudget;
+
+        // Update slider
+        const budgetSlider = document.getElementById('doubleRangeSlider');
+        budgetSlider.noUiSlider.updateOptions({
+            start: [suggestedBudget.min, suggestedBudget.max],
+            range: {
+                'min': 500,
+                'max': 8000
+            }
+        });
+    }
 }
 
 function prevStep() {
@@ -149,10 +204,6 @@ function prevStep() {
 // Initialize the first step
 showStep(currentStep);
 
-function updateBudgetValue(value) {
-    document.getElementById('budgetValue').innerText = value;
-}
-
 
 // Function to show the loading spinner
 function showLoadingSpinner() {
@@ -164,6 +215,35 @@ function showLoadingSpinner() {
 function hideLoadingSpinner() {
     const spinner = document.getElementById('loading-spinner');
     spinner.style.display = 'none';
+}
+function togglePriceFilter() {
+    currentSortBy = 'price';
+    fetch('laptops.json')
+        .then(response => response.json())
+        .then(laptops => {
+            const results = findBestLaptops(laptops, userPreferences);  
+            displayResults(results, 5);
+        })
+        .catch(error => {
+            console.error('Error Fetching laptops:', error);
+
+            // Hide the loading spinner in case of error
+        });
+}
+
+function sortByScore() {
+    currentSortBy = 'score';
+    fetch('laptops.json')
+        .then(response => response.json())
+        .then(laptops => {
+            const results = findBestLaptops(laptops, userPreferences);  
+            displayResults(results, 5);
+        })
+        .catch(error => {
+            console.error('Error Fetching laptops:', error);
+
+            // Hide the loading spinner in case of error
+        });
 }
 
 

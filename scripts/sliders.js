@@ -1,9 +1,5 @@
 // Function to update the budget value dynamically
-function updateSliderValue() {
-    const slider = document.getElementById("budgetSlider");
-    const output = document.getElementById("budgetValue");
-    output.innerHTML = slider.value;
-  }
+
   
   // Function to handle form submission
   function submitForm() {
@@ -57,3 +53,28 @@ function updateSliderValue() {
   
   //double range slider on budget selection: 
   
+  var slider = document.getElementById('doubleRangeSlider');
+
+// Initialize the noUiSlider
+noUiSlider.create(slider, {
+    start: [1000, 3000],  // Initial values of the handles
+    connect: true,    // Connects the handles with a colored bar
+    range: {
+        'min': 500,     // Minimum value
+        'max': 6000    // Maximum value
+
+    },
+    direction: 'rtl',
+    tooltips: [true, true], // Enable tooltips for both handles
+    step: 50,
+    format: {
+        // Function to format the number to an integer
+        to: function (value) {
+            return Math.round(value); // Convert float to int
+        },
+        // Preserve the same value without modifications when from the user
+        from: function (value) {
+            return Number(value); 
+        }
+    }
+});

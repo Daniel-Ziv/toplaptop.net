@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "js-circle-progress": "^1.0.0-beta.0"
+    "js-circle-progress": "^1.0.0-beta.0",
+    "nouislider": "^15.8.1"
   }
 }
