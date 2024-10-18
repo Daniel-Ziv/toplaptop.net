@@ -381,7 +381,7 @@ input[type="checkbox"] {
   }
   /* budget span recommeded text mobile edit */
   #recommendedBudgetSpan{
-    font-size: 12px !important;
+    font-size: 14px !important;
   }
   .navbar h1 {
       font-size: 18px;
@@ -567,10 +567,7 @@ input[type="checkbox"] {
   text-align: center;
 }
 
-/* budget span recommeded web edit */
-#recommendedBudgetSpan{
-  font-size: 16px !important;
-}
+
 
 /* site buttom note */ 
 .note {
