@@ -132,7 +132,7 @@
                 </form>
                 </div>
             </div>
-            <div id="task-error-message" style="color: rgb(242, 32, 32); display: none; margin-top:5px;"></div>
+            <div id="task-error-message" style="color:rgb(220, 0, 0); display: none; margin-top:10px; text-align:center; font-weight:550;"></div>
             <!--bottons sections -->
             <div class="btnsection">
                 <button class="nextBtn" onclick="nextStep()">הבא: תקציב</button>
@@ -300,28 +300,31 @@
         <div class="section" id="question4">
             <h1 dir="rtl"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-briefcase"><path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path><path d="M12 12l0 .01"></path><path d="M3 13a20 20 0 0 0 18 0"></path></svg>ניידות</h1>
             <hr class = "linebreak">
-            <p dir="rtl">כמה חשוב לכם שהוא יהיה קל לסחיבה ונייד?</p>
+            <p dir="rtl">כמה חשוב לכם שהוא יהיה קל לסחיבה והתניידות?</p>
 
             <form dir="rtl" id ="portability-form">
                 <label>
                 <input type="radio" name="portabilityImportance" value="לא חשוב" onclick="hidePortabilityText();">
-                לא חשוב (כל משקל)
-
+                לא חשוב <span style="font-size: 14px; margin-right:5px; margin-top: 5px;">(כל משקל)
+                </span>
                 </label><br>
                 
                 <label>
                 <input type="radio" name="portabilityImportance" value="קצת חשוב" onclick="showPortabilityText();">
-                 קצת חשוב (עד 2.5 קילו) 
+                 קצת חשוב <span style="font-size: 14px; margin-right:5px; margin-top: 5px;">(עד 2.5 קילו)
+                </span>
                 </label><br>
                 
                 <label>
                 <input type="radio" name="portabilityImportance" value="חשוב" onclick="showPortabilityText();">
-                    חשוב (עד 2 קילו)
+                    חשוב <span style="font-size: 14px; margin-right:5px; margin-top: 5px;">(עד 2 קילו)
+                    </span>
                 </label><br>
                 
                 <label>
                 <input type="radio" name="portabilityImportance" value="חשוב מאוד" onclick="showPortabilityText();">
-                חשוב מאוד (עד 1.7 קילו)
+                חשוב מאוד<span style="font-size: 14px; margin-right:5px; margin-top: 5px;">(עד 2 קילו)
+                </span>
                 </label>
             </form>
 

@@ -11,6 +11,10 @@ body{
 
 }
 
+p{
+  font-size: 18px;
+}
+
 /* top logo + navbar */ 
 .navbar {
     background-color: #333;
@@ -23,6 +27,7 @@ body{
     color: white;
     text-align: right;
     margin-right: 5%;
+    
 }
 .linebreak {
     display: block;
@@ -33,7 +38,7 @@ body{
     border-top: 1px solid #aaaaaa;
     border-bottom: 1px solid #ffffff;
     margin-right: 0vw;
-    margin-bottom: 3vw;
+    margin-bottom: 2vw;
  }
 
 /* the container for the body and most questions */ 
@@ -66,6 +71,9 @@ body{
 li + li {
   margin-top: 5px;
 }
+li{
+  font-size: 18px;
+}
 
  /* budget sliders */
 .noUi-tooltip {
@@ -88,7 +96,7 @@ li + li {
 
 
   .budget-selection{
-    margin-top: 30px;
+    margin-top: 50px;
     font-size: 18px;
     display: block;
   }
@@ -158,7 +166,7 @@ input[type="checkbox"]:checked {
             color: white;
             border: none;
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 18px;
             border-radius: 5px;
             cursor: pointer;
             width: 100%; 
@@ -185,7 +193,7 @@ input[type="checkbox"]:checked {
     justify-content: center; /* Center content horizontally inside the button */
     margin: 0 auto; /* Center the button horizontally */
     gap: 2px; /* Add space*/
-    font-size: 16px;
+    font-size: 18px;
 
 
   }
@@ -209,7 +217,7 @@ input[type="checkbox"]:checked {
 label {
     display: flex;
     align-items: center;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
 }
 
@@ -220,6 +228,20 @@ input[type="checkbox"] {
     height: 20px;
 }
 
+input[type="radio"] {
+  margin-right: 10px;
+  margin-left: 10px;
+  width: auto;
+  height: 20px;
+}
+
+#size-form{
+  margin-bottom: 25px;
+}
+#portability-form{
+  margin-bottom: 25px;
+
+}
 /* Results page container */
 .results-page-container {
   max-width: 900px;
@@ -251,7 +273,9 @@ input[type="checkbox"] {
   margin-bottom: 20px;
   width: 100%;
 }
-
+.li{
+  font-size: 16px;
+}
 .inner-card{
   display: inline-flex;
   
@@ -270,7 +294,7 @@ input[type="checkbox"] {
 .laptop-card h2 { 
   margin: 0;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 16px;
 
 }
 
@@ -333,7 +357,7 @@ input[type="checkbox"] {
 .inner-info h2{
   margin-bottom: 2vw;
   text-align: right;
-  margin-left: 7.5vw;
+  margin-left: 4vw;
 
 }
 
@@ -389,6 +413,7 @@ input[type="checkbox"] {
   /* Adjust input fields and checkboxes */
   input[type="checkbox"], input[type="radio"] {
       transform: scale(1.2);
+      
   }
 
   /* Adjust result cards for mobile */
@@ -522,7 +547,7 @@ input[type="checkbox"] {
   cursor: pointer;
   display: inline-block;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 20px;
   list-style: none;
