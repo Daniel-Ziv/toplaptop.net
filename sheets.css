@@ -8,6 +8,7 @@ body{
   font-optical-sizing: auto;
   font-weight: 450;
   font-style: normal;
+
 }
 
 /* top logo + navbar */ 
@@ -66,27 +67,10 @@ li + li {
   margin-top: 5px;
 }
 
- /* budget sliders 
-
- 
- .noUi-tooltip {
-  background-color: #00bfa5;
-  color: #ffffff;
-  font-size: 12px;
-  border-radius: 4px;
-  padding: 4px 8px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  
-  
-  max-width: 60px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center; 
-}*/
+ /* budget sliders */
 .noUi-tooltip {
-    font-size: 16px;  /* Smaller text size for mobile */
-    max-width: 50px;  /* Adjust tooltip width for mobile */
+    font-size: 16px;  
+    max-width: 50px;  
 }
 
   input[type="range"] {
@@ -417,7 +401,7 @@ input[type="checkbox"] {
   label {
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
 }
 
