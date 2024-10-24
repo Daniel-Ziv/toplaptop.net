@@ -5,7 +5,7 @@ const userPreferences = {
     priceImportance: 'לא חשוב',
     budget: [1000,2500],
     tasks: ['גלישה באינטרנט'],
-    sizeImportance: 'לא חשוב',
+    sizeImportance: 'בכלל לא חשוב',
     screenSize: [],
     portabilityImportance: 'לא חשוב',
    };
@@ -527,8 +527,9 @@ function calculateLaptopScore(laptop, combinedWeights, userPreferences) {
     
     let bestSizeScore = 0;  // Track the best score from all range
     
-    if (sizeImportanceLevel === "לא חשוב") {
-        bestSizeScore = 100;  // Full points if screen size doesn't matter
+    if (sizeImportanceLevel === "בכלל לא חשוב") {
+        bestSizeScore = 100;
+        SVGOn = 1;  // Full points if screen size doesn't matter
     }
     else{
         if (selectedRanges.length > 0) {
@@ -730,7 +731,7 @@ function displayResults(results, limit) {
         let budgetIndicatorSVG;
         let screenIndicatorSVG;
 
-        if (laptopPrice >= minBudget && laptopPrice <= maxBudget) {
+        if (laptopPrice <= maxBudget) {
             budgetIndicatorSVG = checkMarkSVG;
         } else {
             budgetIndicatorSVG = xSVG;
@@ -776,7 +777,8 @@ function displayResults(results, limit) {
                 ${screenIndicatorSVG}
                 <span>מסך </span></p>
 
-                <!--------- to remove --------------------------------------------------------------------------------!>
+                <!--------- 
+                FOR TESTING
                 <ol>
                     <li>Price Score: ${laptop.details.price_score.toFixed(2)}</li>
                     <li>Size Score: ${laptop.details.size_score.toFixed(2)}</li>
@@ -794,7 +796,7 @@ function displayResults(results, limit) {
                     <li>Laptop calculated score: ${(((laptop.details.price_score +  laptop.details.size_score + laptop.details.weight_score + laptop.details.ram_score + laptop.details.cpu_score + laptop.details.hz_score + laptop.details.storageType_score + laptop.details.storageSpace_score + laptop.details.forGaming_score)/laptop.details.max_score) * 100).toFixed(2)}</li>
                     <li> user precentage: ${laptop.details.user_precentage}</i>    
                 </ol>
-                <!--------- to remove --------------------------------------------------------------------------------!>
+                        ----------------------!>
 
             </div>
             

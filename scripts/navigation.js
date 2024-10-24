@@ -103,6 +103,49 @@ function validateTaskSelection() {
     return true; // Allow proceeding to the next step
 }
 
+function validateSizeSection() {
+    // Get the size importance radio buttons
+    const size_form = document.forms["size-form"];
+    const selectedSizeImportance = size_form.elements["sizeImportance"].value;
+    const sizeErrorMessageDiv = document.getElementById('size-error-message');
+
+    // If "בכלל לא חשוב" is selected, no need to check dropdown
+    if (selectedSizeImportance === "בכלל לא חשוב") {
+        return true; // Allow submission
+    }
+    
+    // If any other option is selected, check the size selection dropdown
+    const sizeTypeForm = document.forms["sizeType-form"];
+    const sizeSelection = sizeTypeForm.querySelectorAll('input[name="size"]:checked');
+
+    // If no size checkbox is selected, display an error message
+    if (sizeSelection.length === 0) {
+        sizeErrorMessageDiv.textContent = "חובה לבחור"; // Set the error message
+        sizeErrorMessageDiv.style.display = "block"; // Show the error message
+        return false; // Prevent submission
+    }
+
+    return true; // Allow submission if a size was selected
+}
+
+
+function validatePortSection() {
+
+    const portabilityForm = document.forms["portability-form"];
+    const portabilityErrorMessageDiv = document.getElementById('portability-error-message');
+
+    const selectedPortability = portabilityForm.querySelector('input[name="portabilityImportance"]:checked');
+
+    if (!selectedPortability) {
+        portabilityErrorMessageDiv.textContent = "חובה לבחור אפשרות";
+        portabilityErrorMessageDiv.style.display = "block"; 
+        return false; 
+    }
+
+    portabilityErrorMessageDiv.style.display = "none"; 
+    return true; 
+}
+    
 
 
 //show what section we are in at the top of the page 
@@ -145,6 +188,21 @@ function nextStep() {
             return; // Prevent moving to the next step if no tasks are selected
         }
     }
+
+    if (currentStep === 2) {
+        // Validate task selection on step 0 (task form)
+        if (!validateSizeSection()) {
+            return; // Prevent moving to the next step if no tasks are selected
+        }
+    }
+    
+    if (currentStep === 3) {
+        // Validate task selection on step 0 (task form)
+        if (!validatePortSection()) {
+            return; // Prevent moving to the next step if no tasks are selected
+        }
+    }
+
 
     if (currentStep >= 0 && currentStep < sections.length - 1) {
         captureFormData(currentStep);  // Capture data from the current step
