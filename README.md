@@ -1,4 +1,4 @@
-# Laptop Recommendation System - [LIVE SITE](toplaptop.net)
+# Laptop Recommendation System - [LIVE SITE](https://toplaptop.net)
 ### [My Linkedin](https://www.linkedin.com/in/daniel-ziv/)
 
 This project is a **Laptop Recommendation System** that helps users find the best laptop based on their specific needs and preferences, including tasks like **web browsing**, **gaming**, **photo editing**, **programming**, and more. The system uses weights for different laptop parameters (RAM, CPU, screen refresh rate, storage type, etc.) to calculate the best-suited laptops for users, considering factors such as **budget**, **portability**, and **screen size preferences**.
