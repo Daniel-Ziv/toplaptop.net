@@ -103,25 +103,6 @@ function validateTaskSelection() {
     return true; // Allow proceeding to the next step
 }
 
-// Function to calculate and display the results
-function showResults() {
-
-    showLoadingSpinner();
-
-    fetch('laptops.json')
-        .then(response => response.json())
-        .then(laptops => {
-            const results = findBestLaptops(laptops, userPreferences);  
-            hideLoadingSpinner();
-            displayResults(results, 5);
-        })
-        .catch(error => {
-            console.error('Error Fetching laptops:', error);
-
-            // Hide the loading spinner in case of error
-            hideLoadingSpinner();
-        });
-}
 
 
 //show what section we are in at the top of the page 
@@ -188,7 +169,7 @@ function nextStep() {
             start: [suggestedBudget.min, suggestedBudget.max],
             range: {
                 'min': 500,
-                'max': 8000
+                'max': 12000
             }
         });
     }
